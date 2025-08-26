@@ -6,6 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -37,11 +39,20 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     Surface(color = Color.DarkGray, modifier = Modifier.fillMaxSize()) {
-        Surface(color = Color.Magenta, modifier = Modifier.wrapContentSize(align = Alignment.TopEnd)) {
-            Text(
-                text = "Wrapped Content",
-                style = MaterialTheme.typography.headlineMedium
-            )
+        Surface(
+            color = Color.Magenta,
+            modifier = Modifier.wrapContentSize(align = Alignment.Center)
+        ) {
+            Column {
+                Text(
+                    text = "Wrapped Content 1",
+                    style = MaterialTheme.typography.headlineMedium
+                )
+                Text(
+                    text = "Wrapped Content 2",
+                    style = MaterialTheme.typography.headlineMedium
+                )
+            }
         }
     }
 }

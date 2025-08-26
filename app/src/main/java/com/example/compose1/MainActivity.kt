@@ -9,8 +9,10 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
@@ -39,22 +41,22 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     Surface(color = Color.DarkGray, modifier = Modifier.fillMaxSize()) {
-        Surface(
-            color = Color.Magenta,
-            modifier = Modifier.wrapContentSize(align = Alignment.Center)
-        ) {
-            Column {
-                Text(
-                    text = "Wrapped Content 1",
-                    style = MaterialTheme.typography.headlineMedium
-                )
-                Text(
-                    text = "Wrapped Content 2",
-                    style = MaterialTheme.typography.headlineMedium
-                )
-            }
+        Row {
+            HorizontalColorBar(Color.Magenta)
+            HorizontalColorBar(Color.Red)
+            HorizontalColorBar(Color.Green)
         }
     }
+}
+
+@Composable
+fun HorizontalColorBar(color: Color) {
+    Surface(
+        color = color,
+        modifier = Modifier
+            .height(300.dp)
+            .width(100.dp)
+    ) { }
 }
 
 @Preview(showBackground = true)

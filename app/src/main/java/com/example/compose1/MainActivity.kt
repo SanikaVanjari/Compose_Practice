@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -42,9 +43,20 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     Surface(color = Color.DarkGray, modifier = Modifier.fillMaxSize()) {
-        Row(modifier = Modifier.fillMaxSize(), horizontalArrangement = Arrangement.SpaceEvenly, verticalAlignment = Alignment.CenterVertically) {
+        Column(
+            modifier = Modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.SpaceEvenly,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                HorizontalColorBar(Color.Red)
+                HorizontalColorBar(Color.Blue)
+            }
             HorizontalColorBar(Color.Magenta)
-            HorizontalColorBar(Color.Red)
+            HorizontalColorBar(Color.Yellow)
             HorizontalColorBar(Color.Green)
         }
     }
@@ -55,7 +67,7 @@ fun HorizontalColorBar(color: Color) {
     Surface(
         color = color,
         modifier = Modifier
-            .height(300.dp)
+            .height(100.dp)
             .width(100.dp)
     ) { }
 }

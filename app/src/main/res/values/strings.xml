@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Compose1</string>
+    <string name="title_activity_profile">ProfileActivity</string>
+    <string name="image_content">Profile Image</string>
 </resources>
